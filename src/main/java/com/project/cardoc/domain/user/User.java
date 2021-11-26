@@ -1,6 +1,7 @@
 package com.project.cardoc.domain.user;
 
 import com.project.cardoc.domain.BaseTime;
+import com.project.cardoc.domain.usertire.UserTire;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -31,6 +32,9 @@ public class User extends BaseTime implements UserDetails {
 
     @Column(length = 300,  nullable = false)
     private String password;
+
+    @OneToMany(mappedBy = "user")
+    private List<UserTire> userTires = new ArrayList<>();
 
     @ElementCollection(fetch = FetchType.EAGER)
     @Builder.Default

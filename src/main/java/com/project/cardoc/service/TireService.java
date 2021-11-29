@@ -55,7 +55,7 @@ public class TireService {
             String trimId = requestData.getTrimId();
             String carInfoApiURL = "https://dev.mycar.cardoc.co.kr/v1/trim/" + trimId;
 
-            ResponseEntity<String> result = null;
+            ResponseEntity<String> result;
             try{
                 result = restTemplate.getForEntity(carInfoApiURL, String.class);
             } catch (Exception e){
@@ -84,6 +84,9 @@ public class TireService {
             String frontTireVal     = frontTire.get("value").toString();
             String rearTireVal      = rearTire.get("value").toString();
 
+            frontTireVal = frontTireVal.replaceAll("\\s", "");  // 공백제거 : \t, \n, \x0B, \f, \r 모두 제거
+            rearTireVal = rearTireVal.replaceAll("\\s", "");    // 공백제거 : \t, \n, \x0B, \f, \r 모두 제거
+
             if(frontTireVal.equals(rearTireVal))
                 return new String[]{frontTireVal};
             else
@@ -97,12 +100,11 @@ public class TireService {
         String correctDataFormat = "[a-zA-Z]?[0-9]+/[0-9]+R[0-9]+";  // 올바른 데이터 형식 정규식 표현 : {차량종류}{폭}/{편평비}R{휠사이즈}
 
         for(String tireInfo : tires){
-            tireInfo = tireInfo.replaceAll("\\s", "");  // 공백제거 : \t, \n, \x0B, \f, \r 모두 제거
-
             if(tireInfo.matches(correctDataFormat)){    // 올바른 데이터 형식인 경우
                 Pattern pattern = Pattern.compile("[0-9]+");
                 Matcher matcher = pattern.matcher(tireInfo);
 
+                // 폭, 편평비, 휠사이즈 값 추출
                 matcher.find();
                 int width           = Integer.parseInt(matcher.group());
                 matcher.find();

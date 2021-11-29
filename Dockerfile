@@ -10,4 +10,6 @@ COPY --from=builder app/dependencies/ ./
 COPY --from=builder app/spring-boot-loader/ ./
 COPY --from=builder app/snapshot-dependencies/ ./
 COPY --from=builder app/application/ ./
+COPY wait-for-it.sh /app/src/wait-for-it.sh
+RUN ["chmod", "+x", "/app/src/wait-for-it.sh"]
 ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]

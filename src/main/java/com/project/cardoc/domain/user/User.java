@@ -34,6 +34,7 @@ public class User extends BaseTime implements UserDetails {
     private String password;
 
     @OneToMany(mappedBy = "user")
+    @Builder.Default
     private List<UserTire> userTires = new ArrayList<>();
 
     @ElementCollection(fetch = FetchType.EAGER)

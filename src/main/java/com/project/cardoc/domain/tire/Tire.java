@@ -29,5 +29,6 @@ public class Tire extends BaseTime {
     private int wheelDiameter;
 
     @OneToMany(mappedBy = "tire")
+    @Builder.Default
     private List<UserTire> users = new ArrayList<>();
 }

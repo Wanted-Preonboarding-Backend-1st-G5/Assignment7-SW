@@ -1,0 +1,28 @@
+version: "3"
+services:
+  app:
+    container_name: cardoc_api
+    environment:
+      TZ: "Asia/Seoul"
+      SPRING_DATASOURCE_URL: jdbc:mysql://cardoc_db:3306/cardoc_db
+      SPRING_DATASOURCE_USERNAME : root
+      SPRING_DATASOURCE_PASSWORD : root
+      SPRING_PROFILES_ACTIVE : dev
+    restart: always
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - cardoc_db
+
+  cardoc_db:
+    container_name: cardoc_database
+    image: mysql
+    environment:
+      TZ: "Asia/Seoul"
+      MYSQL_DATABASE: cardoc_db
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: '%'
+    ports:
+    - 3306:3306

@@ -4,9 +4,6 @@ services:
     container_name: cardoc_api
     environment:
       TZ: "Asia/Seoul"
-      SPRING_DATASOURCE_URL: jdbc:mysql://cardoc_db:3306/cardoc_db
-      SPRING_DATASOURCE_USERNAME : root
-      SPRING_DATASOURCE_PASSWORD : root
       SPRING_PROFILES_ACTIVE : real
     restart: always
     build:

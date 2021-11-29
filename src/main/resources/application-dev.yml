@@ -1,6 +1,7 @@
 spring:
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/cardoc_db
+    # url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/cardoc_db
+    url: jdbc:mysql://cardoc_db:3306/cardoc_db
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver

@@ -32,6 +32,3 @@ out/
 /dist/
 /nbdist/
 /.nb-gradle/
-
-### Resources ###
-application-real.yml

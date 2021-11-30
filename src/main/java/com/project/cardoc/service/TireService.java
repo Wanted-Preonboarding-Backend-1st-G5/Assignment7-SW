@@ -28,6 +28,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.project.cardoc.payload.ResponseMessage.*;
+
 @Service
 @RequiredArgsConstructor
 public class TireService {
@@ -45,7 +47,7 @@ public class TireService {
         // 요청 데이터 개수 확인
         int dataSize = userTires.size();
         if(dataSize == 0 || dataSize > 5)
-            throw new BadRequestException("요청 값의 개수는 1개 이상 5개 이하여야 합니다.");
+            throw new BadRequestException(FAIL_USERTIRE_NOT_VALID_NUMBER_OF_DATA_REQUESTS);
 
         for (UserTireRequest requestData : userTires) {
             User user = userRepository.findByName(requestData.getId())
@@ -59,7 +61,7 @@ public class TireService {
             try{
                 result = restTemplate.getForEntity(carInfoApiURL, String.class);
             } catch (Exception e){
-                throw new BadRequestException("trimID: " + trimId + " 해당 자동차 정보를 조회할 수 없습니다");
+                throw new BadRequestException("trimID: " + trimId + FAIL_USERTIRE_CANNOT_FIND_CAR_INFO);
             }
 
             String[] tires = getTireInfoFromResult(result.getBody());
@@ -92,7 +94,7 @@ public class TireService {
             else
                 return new String[]{frontTireVal, rearTireVal};
         } catch (Exception e){
-            throw new BadRequestException("해당 값을 찾을 수 없습니다");
+            throw new BadRequestException(FAIL_USERTIRE_CANNOT_FIND_TIRE_INFO);
         }
     }
 

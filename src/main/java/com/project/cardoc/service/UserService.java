@@ -25,6 +25,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static com.project.cardoc.payload.ResponseMessage.*;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -38,7 +40,7 @@ public class UserService {
     @Transactional
     public void createNewUser(UserRequest userRequest){
         if(checkNameDuplicate(userRequest.getId())){
-            throw new BadRequestException("중복된 ID 입니다");
+            throw new BadRequestException(FAIL_USER_SIGNUP_DUPLICATE_USER_ID);
         }
 
         userRepository.save(User.builder()
@@ -56,7 +58,7 @@ public class UserService {
         User user = findUserFromName(userRequest.getId());
 
         if(!validatePassword(userRequest.getPassword(), user.getPassword())){
-            throw new BadRequestException("잘못된 비밀번호 입니다.");
+            throw new BadRequestException(FAIL_USER_LOGIN_WRONG_PASSWORD);
         }
 
         String accessToken = jwtTokenProvider.createToken(user.getUsername(), user.getRoles());

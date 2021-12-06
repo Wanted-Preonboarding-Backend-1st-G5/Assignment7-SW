@@ -11,7 +11,7 @@
 
 
 ##  원티트X위코드 백엔드 프리온보딩 프로젝트 
-
+해당 프로젝트는 원티드X위코드 프리온보딩 백엔드 코스에서 수행한 **카닥**의 기업 과제 입니다.
 
 ## Member
 | 이름  | github                                   |
@@ -374,10 +374,9 @@ Docker, Docker Compose
 ## 배포 정보
 | 배포 플랫폼 | AWS EC2 |
 | --- | --- |
-| 배포 주소 | http://ec2-15-164-220-239.ap-northeast-2.compute.amazonaws.com/ |
+| 배포 주소 | http://ec2-13-209-88-119.ap-northeast-2.compute.amazonaws.com/ |
 
 
 ## API DOCS
-
-postman
-spec 문서 
+### [Postman Docs](https://documenter.getpostman.com/view/12950398/UVJhEFaS)
+### [API 상세 문서](https://github.com/Wanted-Preonboarding-Backend-1st-G5/Assignment7-SW/wiki/API-문서)

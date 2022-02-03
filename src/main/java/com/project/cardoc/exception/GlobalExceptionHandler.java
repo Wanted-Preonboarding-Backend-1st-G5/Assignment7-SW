@@ -10,15 +10,17 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(BadRequestException.class)
-    public ResponseEntity<?> handleBadRequestException(BadRequestException exception){
-        DefaultResponse<?> response = new DefaultResponse<>(ResponseCode.BAD_REQUEST, exception.getMessage());
-        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
-    }
+  @ExceptionHandler(BadRequestException.class)
+  public ResponseEntity<?> handleBadRequestException(final BadRequestException exception) {
+    DefaultResponse<?> response = new DefaultResponse<>(ResponseCode.BAD_REQUEST,
+        exception.getMessage());
+    return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+  }
 
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<?> handleResourceNotFoundException(ResourceNotFoundException exception){
-        DefaultResponse<?> response = new DefaultResponse<>(ResponseCode.RESOURCE_NOT_FOUND, exception.getMessage());
-        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-    }
+  @ExceptionHandler(ResourceNotFoundException.class)
+  public ResponseEntity<?> handleResourceNotFoundException(final ResourceNotFoundException exception) {
+    DefaultResponse<?> response = new DefaultResponse<>(ResponseCode.RESOURCE_NOT_FOUND,
+        exception.getMessage());
+    return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+  }
 }

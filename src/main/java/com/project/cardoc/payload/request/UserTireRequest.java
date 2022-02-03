@@ -1,18 +1,17 @@
 package com.project.cardoc.payload.request;
 
+import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotNull;
 
 @Getter
 @NoArgsConstructor
 public class UserTireRequest {
 
-    @NotNull
-    private String id;
+  @NotNull
+  private String id;
 
-    @NotNull
-    private String trimId;
+  @NotNull
+  private String trimId;
 
 }

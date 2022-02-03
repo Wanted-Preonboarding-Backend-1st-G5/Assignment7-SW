@@ -9,13 +9,13 @@ import lombok.*;
 @ToString
 public final class UserResponse {
 
-    private long    user_id;
-    private String  accessToken;
+  private long userId;
+  private String accessToken;
 
-    public static UserResponse of(long id, String accessToken){
-        return UserResponse.builder()
-                .user_id(id)
-                .accessToken(accessToken)
-                .build();
-    }
+  public static UserResponse of(final long id, final String accessToken) {
+    return UserResponse.builder()
+        .userId(id)
+        .accessToken(accessToken)
+        .build();
+  }
 }

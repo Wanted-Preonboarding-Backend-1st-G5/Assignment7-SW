@@ -6,7 +6,6 @@
   * [서버 구조 및 아키텍쳐](#서버-구조-및-아키텍쳐)
   * [상세 구현 기능 설명](#상세-구현-기능)
   * [서버 실행 방법](#서버-실행-방법)
-  * [배포 정보](#배포-정보)
   * [API DOCS](#api-docs)
 
 
@@ -369,12 +368,6 @@ Docker, Docker Compose
 
 </div>
 </details>
-
-
-## 배포 정보
-| 배포 플랫폼 | AWS EC2 |
-| --- | --- |
-| 배포 주소 | http://ec2-13-209-88-119.ap-northeast-2.compute.amazonaws.com/ |
 
 
 ## API DOCS
